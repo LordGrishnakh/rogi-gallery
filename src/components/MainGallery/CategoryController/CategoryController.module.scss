@@ -1,0 +1,24 @@
+.category-group {
+  display: flex;
+  align-items: center;
+  
+  .line {
+    margin-right: 1rem;
+    width: 5px;
+    height: 2rem;
+    background-color: orange;
+    transform: rotate(30deg);
+  }
+
+  span {
+    cursor: pointer;
+
+    &.active {
+      color: orange;
+    }
+
+    &:hover {
+      color: orange;
+    }
+  }
+}
