@@ -12,12 +12,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
         <Switch>
           <Route path="/" exact component={MainGallery} />
           <Route path="/about" exact component={About} />
           <Route path="/description" exact component={PhotoDescription} />
         </Switch>
+        <Header />
       </div>
     </BrowserRouter>
   );

@@ -1,0 +1,30 @@
+.main-gallery {
+  margin-left: 50px;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 4fr 3fr 1fr;
+
+
+  .category-title {
+    background-color: #2D2D2F;
+    display: inline-block;
+    padding: 1rem;
+    font-size: 2rem;
+    color: #C0C0C0;
+    border: 2px solid #707070;
+    grid-row: 2/3;
+  }
+
+  .gallery {
+    border: 1px solid grey;
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+
+  .category-controller {
+    border: 1px solid grey;
+    grid-column: 2/3;
+    grid-row: 1/3;
+  }
+}
