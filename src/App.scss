@@ -13,3 +13,9 @@
   display: grid;
   place-content: center;
 }
+
+@media (max-width: 720px) {
+  .App {
+    flex-flow: column-reverse;
+  }
+}

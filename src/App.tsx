@@ -15,7 +15,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={MainGallery} />
           <Route path="/about" exact component={About} />
-          <Route path="/description" exact component={PhotoDescription} />
+          <Route path="/description/:id" exact component={PhotoDescription} />
         </Switch>
         <Header />
       </div>

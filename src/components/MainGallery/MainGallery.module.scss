@@ -58,7 +58,9 @@
   .main-gallery {
     margin-left: 0;
     height: auto;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex-flow: column-reverse;
 
     .category-title {
       grid-row: unset;
@@ -69,6 +71,9 @@
     .gallery {
       grid-column: unset;
       grid-row: unset;
+
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 300px);
     }
     .category-controller {
       grid-column: unset;
