@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import classes from "./MainGallery.module.scss";
 
 import CategoryController from "./CategoryController/CategoryController";
+import Gallery from "./Gallery/Gallery";
 
 export type categories =
   | "Категория 1"
@@ -9,11 +10,23 @@ export type categories =
   | "Категория 3"
   | "Категория 4";
 
+export type photo = {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+};
+
 const MainGallery: React.FC = () => {
   const [category, setCategory] = useState<categories>("Категория 1");
+  const [photos, setPhotos] = useState<photo[] | null>(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    let start;
+    setLoading(true)
+    setPhotos(null)
+    let start: number;
     let limit = 6;
     switch (category.split(" ")[1]) {
       case "1":
@@ -32,11 +45,17 @@ const MainGallery: React.FC = () => {
         break;
     }
 
-    fetch(
-      `https://jsonplaceholder.typicode.com/photos?_start=${start}&_limit=${limit}`
-    )
-      .then((resp) => resp.json())
-      .then((data) => console.log(data));
+    setTimeout(() => {
+      fetch(
+        `https://jsonplaceholder.typicode.com/photos?_start=${start}&_limit=${limit}`
+      )
+        .then((resp) => resp.json())
+        .then((data) => {
+          setPhotos(data);
+          setLoading(false)
+          console.log(data);
+        });
+    }, 500);
 
     // return () => {
     //   cleanup
@@ -53,8 +72,10 @@ const MainGallery: React.FC = () => {
         <h1>{category}</h1>
       </div>
       {/* Компонент с 6 картинками - перерисовывается от смены категории */}
-      <div className={classes.gallery}>1</div>
+      {/* <div className={classes.gallery}>1</div> */}
       {/* компонент комнтроллер компонентов */}
+      <Gallery photos={photos} className={classes.gallery} loading={loading} />
+
       <CategoryController
         changeCategory={changeCategory}
         selectedCategory={category}
