@@ -71,10 +71,8 @@ const MainGallery: React.FC = () => {
       <div className={classes["category-title"]}>
         <h1>{category}</h1>
       </div>
-      {/* Компонент с 6 картинками - перерисовывается от смены категории */}
-      {/* <div className={classes.gallery}>1</div> */}
-      {/* компонент комнтроллер компонентов */}
-      <Gallery photos={photos} className={classes.gallery} loading={loading} />
+
+      <Gallery photos={photos} spinnerClass={classes.spinner} className={classes.gallery} loading={loading} />
 
       <CategoryController
         changeCategory={changeCategory}

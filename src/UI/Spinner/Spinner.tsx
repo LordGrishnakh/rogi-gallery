@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/CircleLoader";
 
@@ -9,11 +8,11 @@ const override = css`
   border-color: red;
 `;
 
-const App: React.FC<{ loading: boolean }> = (props) => {
+const App: React.FC<{ loading: boolean; className: string; }> = (props) => {
   let color = "#ffffff"
 
   return (
-    <div className="sweet-loading">
+    <div className={props.className}>
       <ClipLoader color={color} loading={props.loading} css={override} size={150} />
     </div>
   );

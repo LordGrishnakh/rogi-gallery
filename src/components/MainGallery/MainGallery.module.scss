@@ -29,6 +29,13 @@
     gap: 0;
   }
 
+  .spinner {
+    display: grid;
+    grid-column: 2/3;
+    grid-row: 1/3;
+    place-content: center;
+  }
+
   .category-controller {
     border: 1px solid grey;
     grid-column: 2/3;

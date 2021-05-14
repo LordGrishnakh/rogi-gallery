@@ -9,14 +9,15 @@ import { photo } from "../MainGallery";
 const Gallery: React.FC<{
   photos: photo[] | null;
   className: string;
+  spinnerClass: string;
   loading: boolean;
 }> = (props) => {
   console.log("rendered");
 
   return (
     <>
+      {props.loading && <Spinner className={props.spinnerClass} loading={props.loading} />}
       <div className={props.className}>
-        {props.loading && <Spinner loading={props.loading} />}
         {props.photos?.map((photo) => (
           <div className={classes["gallery-item"]}>
             <img src={photo.url} alt={photo.thumbnailUrl} />
