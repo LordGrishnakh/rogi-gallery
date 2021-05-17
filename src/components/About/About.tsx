@@ -9,6 +9,10 @@ const About = () => {
   const [email, setEmail] = useState<"Email" | "igorbir93@gmail.com">("Email");
   const [phone, setPhone] = useState<"Телефон" | "+7(985)625-16-18">("Телефон");
 
+  const rotate = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    e.currentTarget.classList.add(classes.rotated)
+  };
+
   const showText = (contactId: contactId) => {
     switch (contactId) {
       case "gitHub":
@@ -45,17 +49,17 @@ const About = () => {
         <div>
           <i
             className="fab fa-github fa-2x"
-            onMouseEnter={() => showText("gitHub")}
+            onMouseEnter={(e) => {showText("gitHub"); rotate(e)}}
           >
             {gitHUb}
           </i>
         </div>
         <br />
-        <div onMouseEnter={() => showText("email")}>
+        <div onMouseEnter={(e) => {showText("email"); rotate(e)}}>
           <i className="fas fa-envelope-square fa-2x">{email}</i>
         </div>
         <br />
-        <div onMouseEnter={() => showText("telephone")}>
+        <div onMouseEnter={(e) => {showText("telephone"); rotate(e)}}>
           <i className="fas fa-phone-square fa-2x">{phone}</i>
         </div>
       </div>

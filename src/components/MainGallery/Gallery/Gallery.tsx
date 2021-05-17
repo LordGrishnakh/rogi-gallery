@@ -13,12 +13,6 @@ const Gallery: React.FC<{
   spinnerClass: string;
   loading: boolean;
 }> = (props) => {
-  console.log("rendered");
-  let history = useHistory()
-
-  const redirect = (id: number) => {
-    history.push(`/description/${id}`)
-  }
 
   return (
     <>
@@ -27,8 +21,7 @@ const Gallery: React.FC<{
         {props.photos?.map((photo) => (
           <div key={photo.id} className={classes["gallery-item"]}>
             <img src={photo.url} alt={photo.thumbnailUrl} />
-            {/* <button onClick={()=>redirect(photo.id)}>Read More</button> */}
-            <Link to={{ pathname: `/description/${photo.id}`, state: { photo } }}>Read More</Link>
+            <Link to={{ pathname: `/description/${photo.id}`, state: { photo } }}>Подробнее</Link>
           </div>
         ))}
       </div>
