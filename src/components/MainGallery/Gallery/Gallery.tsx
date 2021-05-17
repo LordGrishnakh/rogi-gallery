@@ -28,7 +28,7 @@ const Gallery: React.FC<{
           <div key={photo.id} className={classes["gallery-item"]}>
             <img src={photo.url} alt={photo.thumbnailUrl} />
             {/* <button onClick={()=>redirect(photo.id)}>Read More</button> */}
-            <button><Link to={{ pathname: `/description/${photo.id}`, state: { photo } }}>Read More</Link></button>
+            <Link to={{ pathname: `/description/${photo.id}`, state: { photo } }}>Read More</Link>
           </div>
         ))}
       </div>

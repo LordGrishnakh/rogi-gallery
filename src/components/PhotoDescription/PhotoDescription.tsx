@@ -1,9 +1,12 @@
 import React from 'react'
+
+import classes from "./PhotoDescription.module.scss"
+
 import { useParams, useLocation } from "react-router-dom";
 import { photo } from '../MainGallery/MainGallery';
 
 const PhotoDescription = () => {
-  const id = useParams<{id: string}>()
+  const id = useParams<{ id: string }>()
   const location = useLocation()
 
   const { state: photoState } = location as { state: { photo: photo } }
@@ -12,11 +15,16 @@ const PhotoDescription = () => {
   console.log(photo);
 
   return (
-    <div style={{color: "red"}}>
-      rogi_photo description {id.id}
-      <div>
-        <h1>{photo.title}</h1>
+    <div className={classes["description-container"]}>
+      <div className={classes["description-title"]}>
+        <h1>{photo.title.slice(0, 10)}</h1>
         <img src={photo.url} alt={photo.title} />
+      </div>
+      <div className={classes["description"]}>
+        <h2>{photo.title}</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae rerum quos id ipsam eum cupiditate accusantium eius minus dicta impedit. Dolorem nemo eveniet at voluptas corporis ex similique consequatur maiores atque suscipit quia dolores ducimus autem, voluptatem enim in corrupti. Voluptate omnis vel explicabo, quidem sed delectus dignissimos corrupti est.</p>
+        <button className={classes.notcool}>Rogi_notcool</button>
+        <button className={classes.cool}>Rogi_cool</button>
       </div>
     </div>
   )
