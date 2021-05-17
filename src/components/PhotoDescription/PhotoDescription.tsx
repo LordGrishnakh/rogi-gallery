@@ -1,16 +1,15 @@
-import React from 'react'
+import React from "react";
 
-import classes from "./PhotoDescription.module.scss"
+import classes from "./PhotoDescription.module.scss";
 
-import { useParams, useLocation } from "react-router-dom";
-import { photo } from '../MainGallery/MainGallery';
+import { useLocation } from "react-router-dom";
+import { photo } from "../MainGallery/MainGallery";
 
 const PhotoDescription = () => {
-  const id = useParams<{ id: string }>()
-  const location = useLocation()
+  const location = useLocation();
 
-  const { state: photoState } = location as { state: { photo: photo } }
-  const { photo } = photoState
+  const { state: photoState } = location as { state: { photo: photo } };
+  const { photo } = photoState;
 
   console.log(photo);
 
@@ -22,12 +21,20 @@ const PhotoDescription = () => {
       </div>
       <div className={classes["description"]}>
         <h2>{photo.title}</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae rerum quos id ipsam eum cupiditate accusantium eius minus dicta impedit. Dolorem nemo eveniet at voluptas corporis ex similique consequatur maiores atque suscipit quia dolores ducimus autem, voluptatem enim in corrupti. Voluptate omnis vel explicabo, quidem sed delectus dignissimos corrupti est.</p>
+        <h3>ID: {photo.id}</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae rerum
+          quos id ipsam eum cupiditate accusantium eius minus dicta impedit.
+          Dolorem nemo eveniet at voluptas corporis ex similique consequatur
+          maiores atque suscipit quia dolores ducimus autem, voluptatem enim in
+          corrupti. Voluptate omnis vel explicabo, quidem sed delectus
+          dignissimos corrupti est.
+        </p>
         <button className={classes.notcool}>Rogi_notcool</button>
         <button className={classes.cool}>Rogi_cool</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PhotoDescription
+export default PhotoDescription;
