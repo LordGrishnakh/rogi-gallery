@@ -21,13 +21,11 @@ const Hamburger = () => {
   }, [showModal])
 
   const openSidebar = () => {
-    console.log("open");
     setShowBackdrop(true);
     setShowModal(true);
   };
 
   const closeSidebar = () => {
-    console.log("close");
     setShowBackdrop(false);
     setShowModal(false);
   };

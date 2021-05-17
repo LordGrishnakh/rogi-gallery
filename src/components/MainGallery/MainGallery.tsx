@@ -53,13 +53,8 @@ const MainGallery: React.FC = () => {
         .then((data) => {
           setPhotos(data);
           setLoading(false)
-          console.log(data);
         });
     }, 500);
-
-    // return () => {
-    //   cleanup
-    // }
   }, [category]);
 
   const changeCategory = (category: categories) => {

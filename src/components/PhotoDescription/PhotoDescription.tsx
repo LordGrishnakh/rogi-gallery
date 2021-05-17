@@ -11,7 +11,6 @@ const PhotoDescription = () => {
   const { state: photoState } = location as { state: { photo: photo } };
   const { photo } = photoState;
 
-  console.log(photo);
 
   return (
     <div className={classes["description-container"]}>
