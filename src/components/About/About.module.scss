@@ -1,0 +1,22 @@
+.about {
+  font-size: 1.5rem;
+  color: white;
+  margin: 50px;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .links {
+    div {
+      display: inline-block;
+      cursor: pointer;
+      margin: 1rem 0;
+
+      &:hover {
+        transition: all 1s ease;
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

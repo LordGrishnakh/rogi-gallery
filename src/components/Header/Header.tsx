@@ -13,9 +13,6 @@ const Header = () => {
           <li>
             <NavLink activeStyle={{ color: "orange" }} to="/about">About</NavLink>
           </li>
-          <li>
-            <NavLink activeStyle={{ color: "orange" }} to="/description">Description</NavLink>
-          </li>
         </ul>
     </nav>
   )
